@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
+from django.views.generic import TemplateView
 
 def mysum(request, numbers):
     # request: HttpRequest

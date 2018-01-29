@@ -17,3 +17,6 @@ class Post(models.Model):
                               help_text='경도,위도 포멧으로 입력', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

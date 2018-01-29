@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def mysum(request, x, y=0, z=0):
+def mysum(request, numbers):
     # request: HttpRequest
-    return HttpResponse(int(x) + int(y) + int(z))
+    result = sum(map(lambda s: int(s or 0), numbers.split('/')))
+    return HttpResponse(result)

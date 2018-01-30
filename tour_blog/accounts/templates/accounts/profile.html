@@ -1,0 +1,9 @@
+{% extends 'accounts/layout.html' %}
+
+{% block content %}
+  {{ user }}의 프로필
+
+  {{ user.username }}
+  {{ user.email }}
+  {{ user.date_joined }}
+{% endblock %}

@@ -1,32 +1,20 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>AskDjango</title>
-</head>
+{% extends 'blog/layout.html' %}
 
-<body>
-<h1>AskDjango</h1>
-<p>
-  안녕하세요?
-</p>
+{% block content %}
+  <form action="" method="get">
+    <input type="text" name="q" value="{{ q }}"/>
+    <input type="submit" value="검색"/>
+  </form>
 
-<form action="" method="get">
-  <input type="text" name="q" value="{{ q }}"/>
-  <input type="submit" value="검색" />
-</form>
-
-<ul>
-  {% for post in post_list %}
-    <li>
-      {{ post.id }}
-      <a href="{{ post.id }}/">{{ post.title }}</a>
-      <small>at {{ post.updated_at }}</small>
-    </li>
-  {% endfor %}
-</ul>
-</body>
-</html>
-
+  <ul>
+    {% for post in post_list %}
+      <li>
+        {{ post.id }}
+        <a href="{{ post.id }}/">{{ post.title }}</a>
+        <small>at {{ post.updated_at }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
 
 

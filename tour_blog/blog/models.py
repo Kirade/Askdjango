@@ -2,13 +2,14 @@ import re
 
 from django.db import models
 from django.forms import ValidationError
-
+from django.conf import settings
 
 def lnglat_validator(value):
     if not re.match(r'^([+-]?\d+\.?\d*),([+-]?\d+\.?\d*)$', value):
         raise ValidationError('Invalid LngLat Type')
 
 class Post(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=100)
     content = models.TextField()
     tags = models.CharField(max_length=100, blank=True)
